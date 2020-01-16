@@ -7,7 +7,9 @@ read -p "enter 3rd input " number3
 if [ $number1 -ge 0 -a $number2 -ge 0 -a $number3 -ge 0 ]
 then
    #UC-2
-   result=$(( number1+number2*number3 ))
+   result1=$(( number1+number2*number3 ))
+   #UC-3
+   result2=$(( number1*number2+number3 ))
 else
    echo "please enter valid input"
 fi
