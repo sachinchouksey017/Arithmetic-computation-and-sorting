@@ -3,3 +3,11 @@
 read -p "enter 1st input " number1
 read -p "enter 2nd input " number2
 read -p "enter 3rd input " number3
+
+if [ $number1 -ge 0 -a $number2 -ge 0 -a $number3 -ge 0 ]
+then
+   #UC-2
+   result=$(( number1+number2*number3 ))
+else
+   echo "please enter valid input"
+fi
