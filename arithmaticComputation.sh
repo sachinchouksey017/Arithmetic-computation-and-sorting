@@ -28,6 +28,21 @@ then
    arithmeticArray[((counter++))]=${arithmeticResult[$key]}
    done
    echo "array is "${arithmeticArray[@]}
+   #UC-8
+   for (( i=0;i<${#arithmeticArray};i++ ))
+   do
+    for (( j=0;j<${#arithmeticArray};j++))
+    do
+    echo ${arithmeticArray[$i]} ${arithmeticArray[$j]}
+    if [ ${arithmeticArray[$i]} -gt ${arithmeticArray[$j]} ]
+    then
+       temp=${arithmeticArray[$i]}
+       arithmeticArray[$i]=${arithmeticArray[$j]}
+       arithmeticArray[$j]=$temp
+    fi
+    done
+   done
+echo "array in descending order " ${arithmeticArray[@]}
 else
    echo "please enter valid input"
 fi
