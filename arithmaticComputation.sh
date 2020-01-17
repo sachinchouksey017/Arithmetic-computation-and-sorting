@@ -11,9 +11,16 @@ then
    #UC-3
    result2=$(( number1*number2+number3 ))
    #UC-4
-   result3=$(echo "scale=2;$number3+$number1/$number2" | bc)
+   result3=$(( number3+number1/number2 ))
    #UC-5
-   result4=$(echo "scale=2;$number1/$number2+$number3" | bc)
+   result4=$(( number1/number2+number3 ))
+   #UC-6
+   declare -A arithmeticResult;
+   arithmetic[result1]="$result1"
+   arithmetic[result2]="$result2"
+   arithmetic[result3]=$result3
+   arithmetic[result4]="$result4"
+   echo "all operation is "${arithmetic[@]}
 else
    echo "please enter valid input"
 fi
