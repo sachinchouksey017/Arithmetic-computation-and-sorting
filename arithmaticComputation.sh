@@ -11,8 +11,6 @@ then
    result2=$(( number1*number2+number3 ))
    #UC-4
    result3=$(echo "scale=2;$number3+$number1/$number2" | bc)
- #UC-4
-   result3=$(echo "scale=2;$number3+$number1/$number2" | bc)
 
 else
    echo "please enter valid input"
