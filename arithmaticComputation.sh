@@ -16,11 +16,18 @@ then
    result4=$(( number1/number2+number3 ))
    #UC-6
    declare -A arithmeticResult;
-   arithmetic[result1]="$result1"
-   arithmetic[result2]="$result2"
-   arithmetic[result3]=$result3
-   arithmetic[result4]="$result4"
-   echo "all operation is "${arithmetic[@]}
+   arithmeticResult[result1]="$result1"
+   arithmeticResult[result2]="$result2"
+   arithmeticResult[result3]="$result3"
+   arithmeticResult[result4]="$result4"
+   echo "all operation is "${!arithmeticResult[@]}
+   #UC-7
+   counter=0
+   for key in ${!arithmeticResult[@]}
+   do
+   arithmeticArray[((counter++))]=${arithmeticResult[$key]}
+   done
+   echo "array is "${arithmeticArray[@]}
 else
    echo "please enter valid input"
 fi
