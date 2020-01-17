@@ -29,9 +29,24 @@ then
    done
    echo "array is "${arithmeticArray[@]}
    #UC-8
-   for (( i=0;i<${#arithmeticArray};i++ ))
+   for (( i=0;i<$counter;i++ ))
    do
-    for (( j=0;j<${#arithmeticArray};j++))
+    for (( j=i;j<$counter;j++))
+    do
+    echo ${arithmeticArray[$i]} ${arithmeticArray[$j]}
+    if [ ${arithmeticArray[$i]} -lt ${arithmeticArray[$j]} ]
+    then
+       temp=${arithmeticArray[$i]}
+       arithmeticArray[$i]=${arithmeticArray[$j]}
+       arithmeticArray[$j]=$temp
+    fi
+    done
+   done
+   echo "array in descending order " ${arithmeticArray[@]}
+   #UC-8
+   for (( i=0;i<$counter;i++ ))
+   do
+    for (( j=i;j<$counter;j++))
     do
     echo ${arithmeticArray[$i]} ${arithmeticArray[$j]}
     if [ ${arithmeticArray[$i]} -gt ${arithmeticArray[$j]} ]
@@ -42,7 +57,8 @@ then
     fi
     done
    done
-echo "array in descending order " ${arithmeticArray[@]}
+   echo "array in ascending order " ${arithmeticArray[@]}
+
 else
    echo "please enter valid input"
 fi
